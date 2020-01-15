@@ -1,0 +1,11 @@
+---
+applications:
+  - name: dev1775-nmp-identidad
+    language: nodejs
+    memory: 384m
+    buildpacks:
+      - nodejs_buildpack
+    disk_quota: 256m
+    timeout: 80
+    health-check-type: port
+    stack: cflinuxfs3
