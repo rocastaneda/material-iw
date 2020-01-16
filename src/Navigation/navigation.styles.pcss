@@ -1,0 +1,70 @@
+@import 'variables.pcss';
+
+.navbar {
+  height: var(--nav-height);
+  background: var(--color-white);
+  box-shadow: var(--nav-box-shadow);
+  .navbar-collapse {
+    .navbar-nav {
+      a {
+        font-size: var(--size-14);
+        padding-right: 1.25rem;
+        padding-left: 1.25rem;
+        color: var(--color-mako);
+      }
+
+      & > a.active {
+        color: var(--color-plum);
+      }
+
+      a:hover {
+        color: var(--color-plum);
+        transform: scale(1.1);
+      }
+    }
+
+    .dropdown {
+      color: var(--color-aqua-haze);
+
+      .dropdown-menu {
+        border-radius: 0;
+
+        .active {
+          color: var(--color-white) !important;
+          background: var(--color-plum);
+        }
+
+        .dropdown-item {
+          font-size: var(--size-14);
+          color: var(--color-mako);
+        }
+
+        .dropdown-item:hover {
+          color: var(--color-plum);
+          transform: scale(1.1);
+        }
+
+        .dropdown-item:focus {
+          color: var(--color-plum);
+          background: var(--color-white);
+        }
+      }
+    }
+
+    .navbar-text {
+      align-items: center;
+      margin: 0 0.25rem;
+      span {
+        color: var(--color-tall-poppy);
+        font-size: 0.875rem;
+        line-height: 1.2rem;
+        display: block;
+      }
+
+      span:last-child {
+        color: var(--color-nevada);
+        font-size: 0.75rem;
+      }
+    }
+  }
+}

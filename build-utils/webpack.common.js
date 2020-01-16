@@ -13,11 +13,10 @@ module.exports = {
     ],
   },
   resolve: {
-    modules: ['node_modules'],
-    extensions: ['.css', 'less', '.js', '.json', '.jsx'],
+    extensions: ['*', '.js', '.jsx'],
   },
   plugins: [
-    new CleanWebpackPlugin(['dist']),
+    new CleanWebpackPlugin(['/dist']),
     new CopyWebpackPlugin([
       { from: path.resolve(__dirname, '../', 'src/index.js') },
     ]),

@@ -7,18 +7,26 @@ module.exports = {
   mode: 'development',
   entry: './sandbox/index.jsx',
   output: {
-    filename: 'bundle.js',
     path: path.resolve(__dirname, '../', 'dist'),
+    filename: 'bundle.js',
+    // libraryTarget: 'umd',
+    // library: 'lib',
+    // umdNamedDefine: true,
+    // globalObject: 'this',
   },
-  devtool: 'eval-source-map',
   module: {
     rules: [
       {
-        test: /\.css$/,
-        use: [{ loader: 'style-loader' }, { loader: 'css-loader' }],
+        test: /\.css|.pcss$/,
+        use: [
+          'style-loader',
+          { loader: 'css-loader', options: { importLoaders: 1 } },
+          'postcss-loader',
+        ],
       },
     ],
   },
+  devtool: 'source-map',
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new Dotenv({
@@ -32,5 +40,6 @@ module.exports = {
     historyApiFallback: true,
     contentBase: './dist',
     hot: true,
+    port: 8080,
   },
 };

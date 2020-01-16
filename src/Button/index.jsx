@@ -1,10 +1,9 @@
-/* eslint-disable react/jsx-curly-newline */
-// eslint-disable-next-line react/jsx-curly-newline
+// Dependencies
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Button as Btn } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 
-const Button = ({
+const StyledButton = ({
   id,
   name,
   variant,
@@ -17,14 +16,13 @@ const Button = ({
   icon,
 }) => {
   return (
-    <Btn
+    <Button
       id={id}
       name={name}
       variant={variant}
       disabled={disabled}
       size={size}
       type={type}
-      // eslint-disable-next-line prettier/prettier
       onClick={onClick}
       block={block}
     >
@@ -35,18 +33,18 @@ const Button = ({
         </>
       )}
       {label}
-    </Btn>
+    </Button>
   );
 };
 
-Button.defaultProps = {
+StyledButton.defaultProps = {
   disabled: false,
   size: '',
   block: false,
   icon: null,
 };
 
-Button.propTypes = {
+StyledButton.propTypes = {
   id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   variant: PropTypes.string.isRequired,
@@ -59,4 +57,4 @@ Button.propTypes = {
   icon: PropTypes.node,
 };
 
-export default Button;
+export default StyledButton;
