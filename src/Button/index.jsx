@@ -1,7 +1,9 @@
 // Dependencies
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Button } from 'react-bootstrap';
+import { Button, ButtonToolbar } from 'react-bootstrap';
+
+import './button.styles.pcss';
 
 const StyledButton = ({
   id,
@@ -29,7 +31,7 @@ const StyledButton = ({
       {icon && (
         <>
           {icon}
-          &emsp;
+          &nbsp;
         </>
       )}
       {label}
@@ -42,19 +44,20 @@ StyledButton.defaultProps = {
   size: '',
   block: false,
   icon: null,
+  onClick: null,
 };
 
 StyledButton.propTypes = {
   id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   variant: PropTypes.string.isRequired,
-  onClick: PropTypes.func.isRequired,
   label: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
+  onClick: PropTypes.func,
   size: PropTypes.string,
   disabled: PropTypes.bool,
   block: PropTypes.bool,
   icon: PropTypes.node,
 };
 
-export default StyledButton;
+export { StyledButton as Button, ButtonToolbar };

@@ -1,20 +1,36 @@
 // Dependencies
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Formik } from 'formik';
+import * as yup from 'yup';
 
 // Components
-import Layout from '../src/Layout';
-import Navigation from '../src/Navigation';
-import Button from '../src/Button';
+import { Container, Row, Col } from '../src/Layout';
+import { Nav, Navbar, NavDropdown } from '../src/Navigation';
+import { Button, ButtonToolbar } from '../src/Button';
+import { Form } from '../src/Form';
+import TextInput from '../src/TextInput';
+
+// Static
+import Icon from '../src/static/svg/icon-eye.svg';
+
+const schema = yup.object({
+  name: yup.string().required(),
+  lastName: yup.string().required(),
+  mail: yup
+    .string()
+    .email('Email inválido')
+    .required('Este campo es requerido'),
+});
 
 const WrapperComponent = ({ title, children }) => {
   return (
-    <Layout.Row>
-      <Layout.Col md={12}>
+    <Row>
+      <Col md={12}>
         <h2>{title}</h2>
         {children}
-      </Layout.Col>
-    </Layout.Row>
+      </Col>
+    </Row>
   );
 };
 
@@ -25,55 +41,135 @@ WrapperComponent.propTypes = {
 
 const App = () => {
   return (
-    <Layout.Container>
+    <Container>
       <>
         <h1>InterWare</h1>
         <WrapperComponent title="Navbar">
-          <Navigation.Navbar expand="lg">
-            <Navigation.Navbar.Brand href="#home">
-              Material InterWare
-            </Navigation.Navbar.Brand>
-            <Navigation.Navbar.Toggle aria-controls="basic-navbar-nav" />
-            <Navigation.Navbar.Collapse id="basic-navbar-nav">
-              <Navigation.Nav className="mr-auto">
-                <Navigation.Nav.Link href="#home">Home</Navigation.Nav.Link>
-                <Navigation.Nav.Link href="#link">Link</Navigation.Nav.Link>
-                <Navigation.NavDropdown
-                  title="Dropdown"
-                  id="basic-nav-dropdown"
-                >
-                  <Navigation.NavDropdown.Item href="#action/3.1">
-                    Action
-                  </Navigation.NavDropdown.Item>
-                  <Navigation.NavDropdown.Item href="#action/3.2">
+          <Navbar expand="lg">
+            <Navbar.Brand href="#home">Material InterWare</Navbar.Brand>
+            <Navbar.Toggle aria-controls="basic-navbar-nav" />
+            <Navbar.Collapse id="basic-navbar-nav">
+              <Nav className="mr-auto">
+                <Nav.Link href="#home">Home</Nav.Link>
+                <Nav.Link href="#link">Link</Nav.Link>
+                <NavDropdown title="Dropdown" id="basic-nav-dropdown">
+                  <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+                  <NavDropdown.Item href="#action/3.2">
                     Another action
-                  </Navigation.NavDropdown.Item>
-                  <Navigation.NavDropdown.Item href="#action/3.3">
+                  </NavDropdown.Item>
+                  <NavDropdown.Item href="#action/3.3">
                     Something
-                  </Navigation.NavDropdown.Item>
-                  <Navigation.NavDropdown.Divider />
-                  <Navigation.NavDropdown.Item href="#action/3.4">
+                  </NavDropdown.Item>
+                  <NavDropdown.Divider />
+                  <NavDropdown.Item href="#action/3.4">
                     Separated link
-                  </Navigation.NavDropdown.Item>
-                </Navigation.NavDropdown>
-              </Navigation.Nav>
-            </Navigation.Navbar.Collapse>
-          </Navigation.Navbar>
+                  </NavDropdown.Item>
+                </NavDropdown>
+              </Nav>
+            </Navbar.Collapse>
+          </Navbar>
         </WrapperComponent>
 
         <WrapperComponent title="Button">
-          <Button
-            id="example-button"
-            name="example-button"
-            variant="primary"
-            label="Click me!"
-            type="button"
+          <ButtonToolbar>
+            <Button
+              id="example-button-primary"
+              name="example-button-primary"
+              variant="primary"
+              label="Button primary"
+              type="button"
+              // eslint-disable-next-line no-console
+              onClick={() => console.log('Clicked primary!')}
+            />
+            &emsp;
+            <Button
+              id="example-button-default"
+              name="example-button-default"
+              variant="default"
+              label="Button default"
+              type="button"
+              // eslint-disable-next-line no-console
+              onClick={() => console.log('Clicked default!')}
+            />
+            &emsp;
+            <Button
+              id="example-button-link"
+              name="example-button-link"
+              variant="link"
+              label="Button link"
+              type="button"
+              // eslint-disable-next-line no-console
+              onClick={() => console.log('Clicked link!')}
+              icon={<Icon />}
+            />
+          </ButtonToolbar>
+        </WrapperComponent>
+        <WrapperComponent title="Text Input">
+          <Formik
+            initialValues={{
+              name: '',
+              lastName: '',
+              email: '',
+            }}
+            validationSchema={schema}
             // eslint-disable-next-line no-console
-            onClick={() => console.log('Clicked!')}
-          />
+            onSubmit={e => console.log(e)}
+          >
+            {({ handleSubmit, handleChange, values, errors }) => (
+              <Form noValidate onSubmit={handleSubmit}>
+                <Form.Row>
+                  <Form.Group as={Col} md="4" controlId="validationCustomName">
+                    <TextInput
+                      id="name"
+                      name="name"
+                      label="Name"
+                      placeholder="Name"
+                      value={values.name}
+                      handleChange={handleChange}
+                      isInvalid={!!errors.name}
+                    />
+                  </Form.Group>
+                  <Form.Group
+                    as={Col}
+                    md="4"
+                    controlId="validationCustomLastName"
+                  >
+                    <TextInput
+                      id="lastName"
+                      name="lastName"
+                      label="Last Name"
+                      placeholder="Last Name"
+                      value={values.lastName}
+                      handleChange={handleChange}
+                      isInvalid={!!errors.lastName}
+                    />
+                  </Form.Group>
+                  <Form.Group as={Col} md="4" controlId="validationCustomMail">
+                    <TextInput
+                      id="mail"
+                      name="mail"
+                      label="Mail"
+                      placeholder="E-Mail"
+                      value={values.mail}
+                      handleChange={handleChange}
+                      isInvalid={!!errors.mail}
+                      textInvalid={errors.mail}
+                    />
+                  </Form.Group>
+                </Form.Row>
+                <Button
+                  id="example-submit-button"
+                  name="example-submit-button"
+                  variant="primary"
+                  label="Submit"
+                  type="submit"
+                />
+              </Form>
+            )}
+          </Formik>
         </WrapperComponent>
       </>
-    </Layout.Container>
+    </Container>
   );
 };
 
