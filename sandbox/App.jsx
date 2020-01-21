@@ -8,7 +8,7 @@ import * as yup from 'yup';
 import { Container, Row, Col } from '../src/Layout';
 import { Nav, Navbar, NavDropdown } from '../src/Navigation';
 import { Button, ButtonToolbar } from '../src/Button';
-import { Form } from '../src/Form';
+import Form from '../src/Form';
 import TextInput from '../src/TextInput';
 
 // Static

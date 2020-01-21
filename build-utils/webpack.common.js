@@ -11,6 +11,18 @@ module.exports = {
         use: ['babel-loader', 'eslint-loader'],
       },
       {
+        test: /\.(eot|otf|ttf|woff|woff2)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+              esModule: false,
+            },
+          },
+        ],
+      },
+      {
         test: /\.svg$/,
         use: [
           'babel-loader',
@@ -24,14 +36,6 @@ module.exports = {
             },
           },
         ],
-      },
-      {
-        test: /\.(eot|otf|ttf|woff|woff2)$/,
-        loader: 'file-loader',
-        options: {
-          name: '[name].[ext]',
-          outputPath: 'static/fonts/',
-        },
       },
     ],
   },

@@ -32,7 +32,7 @@ const TextInput = ({
   handleKeyPress,
 }) => {
   return (
-    <Form.Group>
+    <>
       {label && (
         <Form.Label className={classLabel}>
           {label}
@@ -65,7 +65,7 @@ const TextInput = ({
       <Form.Control.Feedback type="invalid">
         {textInvalid || 'Este campo es requerido'}
       </Form.Control.Feedback>
-    </Form.Group>
+    </>
   );
 };
 

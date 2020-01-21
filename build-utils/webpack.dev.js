@@ -9,10 +9,6 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, '../', 'dist'),
     filename: 'bundle.js',
-    // libraryTarget: 'umd',
-    // library: 'lib',
-    // umdNamedDefine: true,
-    // globalObject: 'this',
   },
   module: {
     rules: [
@@ -38,7 +34,7 @@ module.exports = {
   ],
   devServer: {
     historyApiFallback: true,
-    contentBase: './dist',
+    publicPath: '/',
     hot: true,
     port: 8080,
   },

@@ -1,9 +1,16 @@
 @import 'variables.pcss';
+@import 'responsive.pcss';
 
 .navbar {
-  height: var(--nav-height);
+  font-family: 'Roboto Regular';
+  font-size: 0.875rem;
   background: var(--color-white);
   box-shadow: var(--nav-box-shadow);
+
+  @media (--desktop) {
+    height: var(--nav-height);
+  }
+
   .navbar-collapse {
     .navbar-nav {
       a {
@@ -14,12 +21,13 @@
       }
 
       & > a.active {
+        font-family: 'Roboto Bold';
         color: var(--color-plum);
       }
 
       a:hover {
+        font-family: 'Roboto Bold';
         color: var(--color-plum);
-        transform: scale(1.1);
       }
     }
 
@@ -30,6 +38,7 @@
         border-radius: 0;
 
         .active {
+          font-family: 'Roboto Bold';
           color: var(--color-white) !important;
           background: var(--color-plum);
         }
@@ -39,14 +48,18 @@
           color: var(--color-mako);
         }
 
+        .dropdown-item.active:hover {
+          color: var(--color-white);
+          background-color: var(--color-nevada);
+        }
+
         .dropdown-item:hover {
           color: var(--color-plum);
-          transform: scale(1.1);
+          background: transparent;
         }
 
         .dropdown-item:focus {
           color: var(--color-plum);
-          background: var(--color-white);
         }
       }
     }

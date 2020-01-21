@@ -1,202 +1,204 @@
 @import 'variables.pcss';
 
 .btn {
-	border-radius: 0;
+  font-family: 'Roboto Condensed Regular';
+  font-size: 0.875rem;
+  border-radius: 0;
 }
 
 /** Button primary */
 
 .btn-primary {
-	color: var(--color-white);
-	background-color: var(--color-plum);
-	border-color: var(--color-plum);
+  color: var(--color-white);
+  background-color: var(--color-plum);
+  border-color: var(--color-plum);
 
-	svg {
-		path {
-			fill: #fff;
-		}
-	}
+  svg {
+    path {
+      fill: #fff;
+    }
+  }
 }
-  
+
 .btn-primary:hover {
-	color: #fff;
-	background-color: var(--color-plum);
-	border-color: var(--color-plum);
-	transform: scale(1.03);
+  color: #fff;
+  background-color: var(--color-plum);
+  border-color: var(--color-plum);
+  transform: scale(1.03);
 }
 
 .btn-primary:focus,
 .btn-primary.focus {
-	background-color: var(--color-plum);
-	border-color: var(--color-plum);
-	box-shadow: 0 0 0 0.2rem transparent;
+  background-color: var(--color-plum);
+  border-color: var(--color-plum);
+  box-shadow: 0 0 0 0.2rem transparent;
 }
 
 .btn-primary.disabled,
 .btn-primary:disabled {
-	color: #fff;
-	background-color: var(--color-nevada);
-	border-color: var(--color-nevada);
+  color: #fff;
+  background-color: var(--color-nevada);
+  border-color: var(--color-nevada);
 }
 
 .btn-primary:not(:disabled):not(.disabled):active,
 .btn-primary:not(:disabled):not(.disabled).active,
 .show > .btn-primary.dropdown-toggle {
-	color: #fff;
-	background-color: var(--color-plum);
-	border-color: transparent;
+  color: #fff;
+  background-color: var(--color-plum);
+  border-color: transparent;
 }
 
 .btn-primary:not(:disabled):not(.disabled):active:focus,
 .btn-primary:not(:disabled):not(.disabled).active:focus,
 .show > .btn-primary.dropdown-toggle:focus {
-	box-shadow: 0 0 0 0.2rem transparent;
+  box-shadow: 0 0 0 0.2rem transparent;
 }
-  
+
 .btn-outline-primary {
-	color: var(--color-plum);
-	background-color: transparent;
-	background-image: none;
-	border-color: var(--color-plum);
+  color: var(--color-plum);
+  background-color: transparent;
+  background-image: none;
+  border-color: var(--color-plum);
 }
 
 .btn-outline-primary:hover {
-	color: #222;
-	background-color: var(--color-nevada);
-	border-color: var(--color-nevada);
+  color: #222;
+  background-color: var(--color-nevada);
+  border-color: var(--color-nevada);
 }
 
 .btn-outline-primary:focus,
 .btn-outline-primary.focus {
-	box-shadow: 0 0 0 0.2rem transparent;
+  box-shadow: 0 0 0 0.2rem transparent;
 }
 
 .btn-outline-primary.disabled,
 .btn-outline-primary:disabled {
-	color: var(--color-nevada);
-	background-color: transparent;
+  color: var(--color-nevada);
+  background-color: transparent;
 }
 
 .btn-outline-primary:not(:disabled):not(.disabled):active,
 .btn-outline-primary:not(:disabled):not(.disabled).active,
 .show > .btn-outline-primary.dropdown-toggle {
-	color: #fff;
-	background-color: var(--color-plum);
-	border-color: var(--color-plum);
+  color: #fff;
+  background-color: var(--color-plum);
+  border-color: var(--color-plum);
 }
 
 .btn-outline-primary:not(:disabled):not(.disabled):active:focus,
 .btn-outline-primary:not(:disabled):not(.disabled).active:focus,
 .show > .btn-outline-primary.dropdown-toggle:focus {
-	box-shadow: 0 0 0 0.2rem rgba(0, 128, 128, 0.5);
+  box-shadow: 0 0 0 0.2rem rgba(0, 128, 128, 0.5);
 }
-  
-/** Button default */
-	
-.btn-default {
-	color: var(--color-white);
-	background-color: var(--color-nevada);
-	border-color: var(--color-nevada);
 
-	svg {
-		path {
-			fill: #fff;
-		}
-	}
+/** Button default */
+
+.btn-default {
+  color: var(--color-white);
+  background-color: var(--color-nevada);
+  border-color: var(--color-nevada);
+
+  svg {
+    path {
+      fill: var(--color-white);
+    }
+  }
 }
-  
+
 .btn-default:hover {
-	color: #fff;
-	background-color: var(--color-nevada);
-	border-color: var(--color-nevada);
-	transform: scale(1.03);
+  color: #fff;
+  background-color: var(--color-nevada);
+  border-color: var(--color-nevada);
+  transform: scale(1.03);
 }
 
 .btn-default:focus,
 .btn-default.focus {
-	background-color: var(--color-nevada);
-	border-color: var(--color-nevada);
-	box-shadow: 0 0 0 0.2rem transparent;
+  background-color: var(--color-nevada);
+  border-color: var(--color-nevada);
+  box-shadow: 0 0 0 0.2rem transparent;
 }
 
 .btn-default.disabled,
 .btn-default:disabled {
-	color: #fff;
-	background-color: var(--color-nevada);
-	border-color: var(--color-nevada);
+  color: #fff;
+  background-color: var(--color-nevada);
+  border-color: var(--color-nevada);
 }
 
 .btn-default:not(:disabled):not(.disabled):active,
 .btn-default:not(:disabled):not(.disabled).active,
 .show > .btn-default.dropdown-toggle {
-	color: #fff;
-	background-color: var(--color-nevada);
-	border-color: transparent;
+  color: #fff;
+  background-color: var(--color-nevada);
+  border-color: transparent;
 }
 
 .btn-default:not(:disabled):not(.disabled):active:focus,
 .btn-default:not(:disabled):not(.disabled).active:focus,
 .show > .btn-default.dropdown-toggle:focus {
-	box-shadow: 0 0 0 0.2rem rgba(0, 90, 90, 0.5);
+  box-shadow: 0 0 0 0.2rem rgba(0, 90, 90, 0.5);
 }
-  
+
 .btn-outline-default {
-	color: var(--color-nevada);
-	background-color: transparent;
-	background-image: none;
-	border-color: var(--color-nevada);
+  color: var(--color-nevada);
+  background-color: transparent;
+  background-image: none;
+  border-color: var(--color-nevada);
 }
 
 .btn-outline-default:hover {
-	color: #222;
-	background-color: var(--color-nevada);
-	border-color: var(--color-nevada);
+  color: #222;
+  background-color: var(--color-nevada);
+  border-color: var(--color-nevada);
 }
 
 .btn-outline-default:focus,
 .btn-outline-default.focus {
-	box-shadow: 0 0 0 0.2rem rgba(0, 128, 128, 0.5);
+  box-shadow: 0 0 0 0.2rem rgba(0, 128, 128, 0.5);
 }
 
 .btn-outline-default.disabled,
 .btn-outline-default:disabled {
-	color: var(--color-nevada);
-	background-color: transparent;
+  color: var(--color-nevada);
+  background-color: transparent;
 }
 
 .btn-outline-default:not(:disabled):not(.disabled):active,
 .btn-outline-default:not(:disabled):not(.disabled).active,
 .show > .btn-outline-default.dropdown-toggle {
-	color: #fff;
-	background-color: var(--color-nevada);
-	border-color: var(--color-nevada);
+  color: #fff;
+  background-color: var(--color-nevada);
+  border-color: var(--color-nevada);
 }
 
 .btn-outline-default:not(:disabled):not(.disabled):active:focus,
 .btn-outline-default:not(:disabled):not(.disabled).active:focus,
 .show > .btn-outline-default.dropdown-toggle:focus {
-	box-shadow: 0 0 0 0.2rem rgba(0, 128, 128, 0.5);
+  box-shadow: 0 0 0 0.2rem rgba(0, 128, 128, 0.5);
 }
-  
-/** Button link */
-  
-.btn-link {
-	background-color: transparent;
-	color: var(--color-plum);
-	padding: 0;
-	width: auto;
 
-	&:hover,
-	&:active,
-	&:focus,
-	&:active:focus {
-		background-color: transparent;
-		color: darken(var(--color-plum), 10%);
-	}
+/** Button link */
+
+.btn-link {
+  background-color: transparent;
+  color: var(--color-plum);
+  padding: 0;
+  width: auto;
+
+  &:hover,
+  &:active,
+  &:focus,
+  &:active:focus {
+    background-color: transparent;
+    color: darken(var(--color-plum), 10%);
+  }
 }
 
 .btn-link:hover {
-	color: var(--color-plum);
-	transform: scale(1.03);
-	text-decoration: none;
+  color: var(--color-plum);
+  transform: scale(1.03);
+  text-decoration: none;
 }
