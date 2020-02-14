@@ -1,0 +1,14 @@
+{
+  "Commons": {
+    "rightMessage": "Correcto",
+    "requiredField": "Éste campo es requerido"
+  },
+  "Modal": {
+    "Accept": "Aceptar",
+    "Cancel": "Cancelar"
+  },
+  "ReactSelectInput": {
+    "SelectOption": "Selecciona una opción",
+    "NoAvailableOptions": "No existen opciones para mostrar"
+  }
+}

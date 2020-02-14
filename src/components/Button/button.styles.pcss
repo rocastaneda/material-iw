@@ -1,9 +1,18 @@
 @import 'variables.pcss';
 
 .btn {
-  font-family: 'Roboto Condensed Regular';
+  font-family: 'Roboto Condensed Light';
   font-size: 0.875rem;
   border-radius: 0;
+  text-transform: uppercase;
+  .btn-label {
+    position: relative;
+    left: -12px;
+    display: inline-block;
+    padding: 6px 12px;
+    background: rgba(0, 0, 0, 0.15);
+    border-radius: 3px 0 0 3px;
+  }
 }
 
 /** Button primary */
@@ -11,27 +20,25 @@
 .btn-primary {
   color: var(--color-white);
   background-color: var(--color-plum);
-  border-color: var(--color-plum);
-
+  border-radius: 4px;
+  border: 2px solid #6c2b68;
   svg {
-    path {
-      fill: #fff;
-    }
+    width: 2rem;
+    height: 2rem;
   }
 }
 
 .btn-primary:hover {
-  color: #fff;
-  background-color: var(--color-plum);
+  color: var(--color-white);
+  background-color: #6c2b68;
   border-color: var(--color-plum);
-  transform: scale(1.03);
 }
 
 .btn-primary:focus,
 .btn-primary.focus {
   background-color: var(--color-plum);
   border-color: var(--color-plum);
-  box-shadow: 0 0 0 0.2rem transparent;
+  box-shadow: 0 0 0 0.2rem rgba(136, 54, 130, 0.5);
 }
 
 .btn-primary.disabled,
@@ -99,19 +106,14 @@
   color: var(--color-white);
   background-color: var(--color-nevada);
   border-color: var(--color-nevada);
-
-  svg {
-    path {
-      fill: var(--color-white);
-    }
-  }
+  border-radius: 4px;
+  border: 2px solid #516064;
 }
 
 .btn-default:hover {
   color: #fff;
-  background-color: var(--color-nevada);
+  background-color: #516064;
   border-color: var(--color-nevada);
-  transform: scale(1.03);
 }
 
 .btn-default:focus,
@@ -180,25 +182,84 @@
   box-shadow: 0 0 0 0.2rem rgba(0, 128, 128, 0.5);
 }
 
-/** Button link */
+/** Button light */
 
-.btn-link {
+.btn-light {
+  color: var(--color-black);
   background-color: transparent;
-  color: var(--color-plum);
-  padding: 0;
-  width: auto;
-
-  &:hover,
-  &:active,
-  &:focus,
-  &:active:focus {
-    background-color: transparent;
-    color: darken(var(--color-plum), 10%);
-  }
+  border-color: var(--color-plum);
+  border-radius: 4px;
+  border: 2px solid var(--color-plum);
 }
 
-.btn-link:hover {
-  color: var(--color-plum);
-  transform: scale(1.03);
-  text-decoration: none;
+.btn-light:hover {
+  color: var(--color-black);
+  background-color: rgba(0, 0, 0, 0.04);
+  border-color: var(--color-plum);
+}
+
+.btn-light:focus,
+.btn-light.focus {
+  background-color: transparent;
+  background-color: rgba(0, 0, 0, 0.04);
+  box-shadow: 0 0 0 0.2rem rgba(136, 54, 130, 0.5);
+}
+
+.btn-light.disabled,
+.btn-light:disabled {
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.04);
+  border-color: var(--color-plum);
+}
+
+.btn-light:not(:disabled):not(.disabled):active,
+.btn-light:not(:disabled):not(.disabled).active,
+.show > .btn-light.dropdown-toggle {
+  color: var(--color-black);
+  background-color: rgba(0, 0, 0, 0.04);
+  border-color: transparent;
+}
+
+.btn-light:not(:disabled):not(.disabled):active:focus,
+.btn-light:not(:disabled):not(.disabled).active:focus,
+.show > .btn-light.dropdown-toggle:focus {
+  box-shadow: 0 0 0 0.2rem rgba(136, 54, 130, 0.5);
+}
+
+.btn-outline-light {
+  color: var(--color-black);
+  background-color: rgba(0, 0, 0, 0.04);
+  background-image: none;
+  border-color: var(--color-plum);
+}
+
+.btn-outline-light:hover {
+  color: #222;
+  background-color: rgba(0, 0, 0, 0.04);
+  border-color: var(--color-plum);
+}
+
+.btn-outline-light:focus,
+.btn-outline-light.focus {
+  box-shadow: 0 0 0 0.2rem rgba(0, 128, 128, 0.5);
+}
+
+.btn-outline-light.disabled,
+.btn-outline-light:disabled {
+  color: var(--color-black);
+  background-color: transparent;
+}
+
+.btn-outline-light:not(:disabled):not(.disabled):active,
+.btn-outline-light:not(:disabled):not(.disabled).active,
+.show > .btn-outline-light.dropdown-toggle {
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.04);
+  border-color: var(--color-plum);
+}
+
+.btn-outline-light:not(:disabled):not(.disabled):active:focus,
+.btn-outline-light:not(:disabled):not(.disabled).active:focus,
+.show > .btn-outline-light.dropdown-toggle:focus {
+  box-shadow: 0 0 0 0.2rem rgba(0, 128, 128, 0.5);
 }

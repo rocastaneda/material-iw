@@ -1,6 +1,11 @@
 const path = require('path');
+const webpack = require('webpack');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+
+const GLOBALS = {
+  'process.env.baseURL': JSON.stringify(process.env.BACKEND_SERVER),
+};
 
 module.exports = {
   module: {
@@ -40,12 +45,16 @@ module.exports = {
     ],
   },
   resolve: {
-    extensions: ['*', '.js', '.jsx'],
+    extensions: ['*', '.js', '.jsx', '.json'],
+    alias: {
+      '~': path.resolve(__dirname, '../', 'src'),
+    },
   },
   plugins: [
     new CleanWebpackPlugin(['/dist']),
     new CopyWebpackPlugin([
       { from: path.resolve(__dirname, '../', 'src/index.js') },
     ]),
+    new webpack.DefinePlugin(GLOBALS),
   ],
 };

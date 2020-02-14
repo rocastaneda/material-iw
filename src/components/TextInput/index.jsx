@@ -3,6 +3,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Form } from 'react-bootstrap';
 
+// Labels
+import Labels from '../../utils/Labels';
+
 import './text-input.styles.pcss';
 
 const TextInput = ({
@@ -61,9 +64,11 @@ const TextInput = ({
         onBlur={handleBlur}
         onKeyPress={handleKeyPress}
       />
-      <Form.Control.Feedback>{textValid || 'Correcto'}</Form.Control.Feedback>
+      <Form.Control.Feedback>
+        {textValid || Labels.Commons.rightMessage}
+      </Form.Control.Feedback>
       <Form.Control.Feedback type="invalid">
-        {textInvalid || 'Este campo es requerido'}
+        {textInvalid || Labels.Commons.requiredField}
       </Form.Control.Feedback>
     </>
   );
