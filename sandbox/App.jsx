@@ -6,9 +6,6 @@ import PropTypes from 'prop-types';
 // Icons
 import EyeIcon from 'bootstrap-icons/icons/eye.svg';
 
-// GlobalState
-import GlobalState from '../src/context/GlobalState';
-
 // Components
 import {
   Container,
@@ -26,6 +23,7 @@ import {
   Utils,
   Modal,
   Loading,
+  GlobalState,
 } from '../src';
 
 // Resources

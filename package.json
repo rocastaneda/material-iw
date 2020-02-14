@@ -1,6 +1,6 @@
 {
   "name": "material-iw",
-  "version": "0.2.8",
+  "version": "0.2.9",
   "description": "Interware styled components based on React Bootstrap and Bootstrap styles",
   "main": "dist/index.js",
   "scripts": {

@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import { ModalProvider } from './ModalContext';
 import { LoadingProvider } from './LoadingContext';
 
-const GlobalState = ({ children }) => {
+export const GlobalState = ({ children }) => {
   return (
     <ModalProvider>
       <LoadingProvider>{children}</LoadingProvider>
@@ -17,5 +17,3 @@ const GlobalState = ({ children }) => {
 GlobalState.propTypes = {
   children: PropTypes.node.isRequired,
 };
-
-export default GlobalState;

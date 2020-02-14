@@ -13,3 +13,4 @@ export { default as yup } from '~/utils/yup';
 export { default as Utils } from '~/utils/Utils';
 export { default as ReactSelectInput } from '~/components/ReactSelectInput';
 export { Loading } from '~/components/Loading';
+export { GlobalState } from '~/context/GlobalState';
