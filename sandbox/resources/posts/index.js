@@ -1,6 +1,6 @@
 // Utils
-import { Utils } from '../../../src';
+import { makeRequest } from '../../../src';
 
 export const getPosts = data => {
-  return Utils.makeRequest('posts', data);
+  return makeRequest('https://jsonplaceholder.typicode.com', 'posts', data);
 };

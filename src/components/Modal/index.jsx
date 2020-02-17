@@ -9,7 +9,7 @@ import { Button, ButtonToolbar } from '../Button';
 import { useModal } from '../../context/ModalContext';
 
 // Utils
-import Utils from '../../utils/Utils';
+import { closeModal } from '../../utils/Utils';
 
 // Styles
 import './modal.styles.pcss';
@@ -44,7 +44,7 @@ export const ModalMessage = () => {
         id="close-modal-button"
         name="close-modal-button"
         variant="primary"
-        onClick={() => Utils.closeModal()}
+        onClick={() => closeModal()}
         label="Cerrar"
         type="button"
       />

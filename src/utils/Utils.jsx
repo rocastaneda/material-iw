@@ -20,15 +20,15 @@ import WarningIcon from '../static/svg/ico-atencion.svg';
 // Labels
 import Labels from './Labels';
 
-const getItem = (list, item) => findWhere(list, item);
+export const getItem = (list, item) => findWhere(list, item);
 
-const indexOfItem = (list, item) => indexOf(list, item);
+export const indexOfItem = (list, item) => indexOf(list, item);
 
-const closeModal = () => {
+export const closeModal = () => {
   modalStore.dispatch({ type: SHOW_MODAL, show: false });
 };
 
-const warningMessage = (title, message) => {
+export const warningMessage = (title, message) => {
   const modalObj = {
     title: title || '¡Atención!',
     body: (
@@ -43,7 +43,7 @@ const warningMessage = (title, message) => {
   modalStore.dispatch({ type: SHOW_MODAL, show: true });
 };
 
-const questionMessage = (title, message, acceptClick) => {
+export const questionMessage = (title, message, acceptClick) => {
   const modalObj = {
     title: title || '¿?',
     body: (
@@ -74,11 +74,12 @@ const questionMessage = (title, message, acceptClick) => {
   modalStore.dispatch({ type: SHOW_MODAL, show: true });
 };
 
-const makeRequest = async (service, request) => {
+export const makeRequest = async (baseURL, service, request) => {
   loadingStore.dispatch({ type: SET_LOADING, isLoading: true });
 
   try {
     const res = await ClientHttpRequest({
+      baseURL,
       service,
       method: 'POST',
       data: request,
@@ -96,13 +97,4 @@ const makeRequest = async (service, request) => {
     loadingStore.dispatch({ type: SET_LOADING, isLoading: false });
     return error;
   }
-};
-
-export default {
-  getItem,
-  indexOfItem,
-  closeModal,
-  warningMessage,
-  questionMessage,
-  makeRequest,
 };

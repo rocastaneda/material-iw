@@ -20,7 +20,9 @@ import {
   TextInput,
   Formik,
   yup,
-  Utils,
+  questionMessage,
+  warningMessage,
+  closeModal,
   Modal,
   Loading,
   GlobalState,
@@ -34,7 +36,7 @@ import './styles.pcss';
 const schema = yup.object({
   name: yup.string().required(),
   lastName: yup.string().required(),
-  mail: yup
+  email: yup
     .string()
     .email('Email inválido')
     .required(''),
@@ -52,17 +54,17 @@ const WrapperComponent = ({ title, children }) => {
 
 const createModalMesaage = type => {
   if (type === 'question') {
-    return Utils.questionMessage(
+    return questionMessage(
       'Title question message',
       'Third argument must be a function',
       () => {
         // eslint-disable-next-line no-console
         console.info('Accept question message');
-        Utils.closeModal();
+        closeModal();
       }
     );
   } else {
-    Utils.warningMessage(
+    warningMessage(
       'Title warning',
       'Just receive a string param message'
     );
@@ -159,7 +161,7 @@ const App = () => {
               initialValues={{
                 name: '',
                 lastName: '',
-                mail: '',
+                email: '',
                 options: '',
               }}
               validationSchema={schema}
@@ -169,6 +171,9 @@ const App = () => {
             >
               {({ handleSubmit, handleChange, values, errors, touched }) => (
                 <Form noValidate onSubmit={handleSubmit}>
+                  <div>{JSON.stringify(values)}</div>
+                  <div>{JSON.stringify(errors)}</div>
+                  <div>{JSON.stringify(touched)}</div>
                   <Form.Row>
                     <Form.Group
                       as={Col}
@@ -206,14 +211,14 @@ const App = () => {
                       controlId="validationCustomMail"
                     >
                       <TextInput
-                        name="mail"
+                        name="email"
                         label="Mail"
                         placeholder="E-Mail"
-                        value={values.mail}
+                        value={values.email}
                         handleChange={handleChange}
-                        isInvalid={!!errors.mail}
-                        isValid={touched.mail && !errors.mail}
-                        textInvalid={errors.mail}
+                        isInvalid={!!errors.email}
+                        isValid={touched.email && !errors.email}
+                        textInvalid={errors.email}
                       />
                     </Form.Group>
                     <Form.Group

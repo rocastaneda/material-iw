@@ -4,7 +4,7 @@ import Select from 'react-select';
 import { Form } from 'react-bootstrap';
 
 // Utils
-import Utils from '../../utils/Utils';
+import { getItem } from '../../utils/Utils';
 
 // Labels
 import Labels from '../../utils/Labels';
@@ -38,7 +38,7 @@ const ReactSelectInput = ({
       <Select
         name={name}
         id={name}
-        value={value ? Utils.getItem(data, { value }) : value}
+        value={value ? getItem(data, { value }) : value}
         placeholder={placeholder || Labels.ReactSelectInput.SelectOption}
         isClearable={clearable}
         isDisabled={disabled}
