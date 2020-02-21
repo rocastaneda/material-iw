@@ -9,6 +9,7 @@ import EyeIcon from 'bootstrap-icons/icons/eye.svg';
 // Components
 import {
   Container,
+  Row,
   Col,
   Nav,
   Navbar,
@@ -39,16 +40,16 @@ const schema = yup.object({
   email: yup
     .string()
     .email('Email inválido')
-    .required(''),
-  options: yup.string().required(''),
+    .required('Required'),
+  options: yup.string().required('Required'),
 });
 
 const WrapperComponent = ({ title, children }) => {
   return (
-    <div className="DemoWrapper">
+    <Col md={12} className="DemoWrapper">
       <h3>{title}</h3>
       <div className="ComponentWrapper">{children}</div>
-    </div>
+    </Col>
   );
 };
 
@@ -64,10 +65,7 @@ const createModalMesaage = type => {
       }
     );
   } else {
-    warningMessage(
-      'Title warning',
-      'Just receive a string param message'
-    );
+    warningMessage('Title warning', 'Just receive a string param message');
   }
 };
 
@@ -91,7 +89,7 @@ const App = () => {
       <Modal />
       <Loading />
       <Container>
-        <>
+        <Row>
           <h1 className="text-center">InterWare UI</h1>
           <WrapperComponent title="Navbar">
             <Navbar expand="lg">
@@ -171,9 +169,6 @@ const App = () => {
             >
               {({ handleSubmit, handleChange, values, errors, touched }) => (
                 <Form noValidate onSubmit={handleSubmit}>
-                  <div>{JSON.stringify(values)}</div>
-                  <div>{JSON.stringify(errors)}</div>
-                  <div>{JSON.stringify(touched)}</div>
                   <Form.Row>
                     <Form.Group
                       as={Col}
@@ -248,6 +243,7 @@ const App = () => {
                     variant="primary"
                     label="Submit primary"
                     type="submit"
+                    className="float-right"
                   />
                 </Form>
               )}
@@ -290,7 +286,10 @@ const App = () => {
               />
             </ButtonToolbar>
           </WrapperComponent>
-        </>
+          <WrapperComponent title="Font family">
+            <h4>H4 Font family</h4>
+          </WrapperComponent>
+        </Row>
       </Container>
     </GlobalState>
   );

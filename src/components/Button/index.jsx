@@ -16,6 +16,7 @@ const StyledButton = ({
   block,
   type,
   icon,
+  className,
 }) => {
   return (
     <Button
@@ -27,6 +28,7 @@ const StyledButton = ({
       type={type}
       onClick={onClick}
       block={block}
+      className={className}
     >
       {icon && (
         <>
@@ -58,6 +60,7 @@ StyledButton.propTypes = {
   disabled: PropTypes.bool,
   block: PropTypes.bool,
   icon: PropTypes.node,
+  className: PropTypes.string,
 };
 
 export { StyledButton as Button, ButtonToolbar };
